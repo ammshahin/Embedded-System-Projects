@@ -1,0 +1,36 @@
+int l1 = 2,l2 = 3,r1=4,r2=5;
+char t;
+void setup()
+{	
+  pinMode(l1,OUTPUT);
+  pinMode(l2,OUTPUT);
+   pinMode(r1,OUTPUT);
+  pinMode(r2,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{	
+  if(Serial.available()){
+    t = Serial.read();
+  }
+  t = 'F';
+  if(t == 'F'){
+    digitalWrite(l1,HIGH);
+  	digitalWrite(l2,LOW);
+    digitalWrite(r2,HIGH);
+  	digitalWrite(r1,LOW);
+    Serial.println("Robot moving Forward");
+    delay(2000);
+  }
+  t = 'B';
+  if(t == 'B'){
+    digitalWrite(l1,LOW);
+  	digitalWrite(l2,HIGH);
+    digitalWrite(r2,LOW);
+  	digitalWrite(r1,HIGH);
+    Serial.println("Robot moving Backward");
+    delay(2000);
+  }
+  
+}
